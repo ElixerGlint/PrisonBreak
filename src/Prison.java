@@ -24,7 +24,12 @@ public class Prison {
             if(i%10 == 0 && i > 0) {
                 output+="\n";
                 for(int j = i-10; j < i; j++) {
-                    output+= "[" + boxes[j] + "]";
+                    if(boxes[j] < 10) {
+                        output+= "[0" + boxes[j] + "]";
+                    }
+                    else {
+                        output+= "[" + boxes[j] + "]";
+                    }
                 }
                 output += "\n";
             }
