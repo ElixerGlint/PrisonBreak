@@ -1,9 +1,9 @@
 public class Driver {
     public static void main(String[] args) throws Exception {
-        Prison abc = new Prison(10);
-        
+        Prison abc = new Prison(100);
+        System.out.println(abc);
 
-
+        System.out.println(abc.followSmartPath(0, true));
 
 
 

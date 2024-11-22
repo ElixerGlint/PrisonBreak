@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class Prison {
     private int[] boxes;
@@ -11,15 +10,21 @@ public class Prison {
         this.shuffle();
     }
 
-    public boolean followSmartPath(int start, boolean show) { //VERY WRONG
+    public boolean followSmartPath(int start, boolean show) { //kinda confused
         String output = "";
-        for(int i = 0; i < boxes.length; i++) { //the rate will be determined here VERY WRONG
-            output += boxes[i];
-            if(start == boxes[i]) {
-
+        int tempnum = start;
+        for(int i = 0; i < boxes.length; i++) {
+            System.out.print(tempnum + " -> ");
+            tempnum = boxes[tempnum];
+            if(boxes[tempnum] == boxes[start]) {
+                System.out.print(start);
+                if(show) {
+                    System.out.println(output);
+                }
                 return true;
             }
         }
+        
         return false;
     }
 
