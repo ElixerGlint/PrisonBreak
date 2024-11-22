@@ -3,7 +3,7 @@ public class Driver {
         Prison abc = new Prison(100);
         System.out.println(abc);
 
-        System.out.println(abc.followSmartPath(0, true));
+        System.out.println(abc.followSmartPath(3, true));
 
 
 
