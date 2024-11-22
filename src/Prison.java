@@ -14,24 +14,14 @@ public class Prison {
     public String toString() {
         String output = "";
         for(int i = 0; i < boxes.length; i++) {
-
-            if(i < 10) {
-                output+= "[0" + i + "]";
-            }
-            else{
-                output+= "[" + i + "]";
-            }
-            if(i%10 == 0 && i > 0) {
+            if(i%10 == 0) {
                 output+="\n";
-                for(int j = i-10; j < i; j++) {
-                    if(boxes[j] < 10) {
-                        output+= "[0" + boxes[j] + "]";
-                    }
-                    else {
-                        output+= "[" + boxes[j] + "]";
-                    }
-                }
-                output += "\n";
+            }
+            if(i < 10) { //box #
+                output+= "[0" + i + ", " + boxes[i] + "]";
+            }
+            else{ //box #
+                output+= "[" + i + ", " + boxes[i] + "]";
             }
         }
         return output;
