@@ -24,7 +24,7 @@ public class Prison {
                 return true;
             }
         }
-        
+        System.out.println();
         return false;
     }
 
