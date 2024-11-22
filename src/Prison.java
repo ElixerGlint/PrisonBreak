@@ -13,7 +13,7 @@ public class Prison {
     public boolean followSmartPath(int start, boolean show) { //ask questions
         String output = "";
         int tempnum = start;
-        for(int i = 0; i < boxes.length; i++) { //the possible error point
+        for(int i = 0; i < boxes.length/2; i++) { //the possible error point
             System.out.print(tempnum + " -> ");
             tempnum = boxes[tempnum];
             if(boxes[tempnum] == boxes[start]) {
