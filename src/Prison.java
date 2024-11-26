@@ -1,6 +1,6 @@
 
 public class Prison {
-    private int[] boxes;
+    private int[] boxes; //2 prisoners
 
     public Prison(int boxnum) {
         boxes = new int[boxnum];
@@ -28,6 +28,24 @@ public class Prison {
         return false;
     }
 
+    public boolean followRandomPath(int start, boolean show) { //cant repeat boxes you have looked through
+        int tempboxes[] = boxes.clone();
+        String output = "";
+        
+        othershuffle(tempboxes);
+
+        for(int i = 0; i < boxes.length/2; i++) {
+            System.out.print(i + " -> ");
+            if(tempboxes[i] == start) {
+                return true;
+            }
+            
+        }
+
+
+        
+        return false;
+    }
     
     @Override
     public String toString() {
@@ -46,7 +64,26 @@ public class Prison {
         return output;
 
     }
+    
+    public static void othershuffle(int[] arr) { 
+        //shuffles arrays
+        int tempnum = 0;
+        int tempindex = 0;
+        int tempnum2 = 0;
+        int tempindex2 = 0;
 
+        for(int i = 0 ; i< arr.length; i++) {
+
+            tempindex = (int) (Math.random()*arr.length);
+            tempnum = arr[tempindex];
+
+            tempindex2 = (int) (Math.random()*arr.length);
+            tempnum2 = arr[tempindex2];
+            
+            arr[tempindex] = tempnum2;
+            arr[tempindex2] = tempnum;
+        }
+    }
 
     public void shuffle() {
         int tempnum = 0;
