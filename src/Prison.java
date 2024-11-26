@@ -35,7 +35,7 @@ public class Prison {
         othershuffle(tempboxes);
 
         for(int i = 0; i < boxes.length/2; i++) {
-            System.out.print(i + " -> ");
+            System.out.print("random -> ");
             if(tempboxes[i] == start) {
                 return true;
             }
