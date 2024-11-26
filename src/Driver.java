@@ -3,7 +3,7 @@ public class Driver {
         Prison abc = new Prison(100);
         System.out.println(abc);
 
-        System.out.println(abc.followRandomPath(3, true));
+        System.out.println(abc.followRandomPath(1, true));
 
 
 
