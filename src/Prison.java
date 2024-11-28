@@ -17,6 +17,10 @@ public class Prison {
             int actualwins = 0;
             int wins = 0;
 
+            if(boxes.length == 1) {
+                return 100;
+            }
+
             for (int j = 0; j < trials; j++) { //for each trial, it runs through x prison experiement
                 for (int i = 0; i < boxes.length; i++) { //below it runs through the prison experiement
                     if (followSmartPath(i, false)) { //if prisoner i makes it through, wins gets +
@@ -35,6 +39,10 @@ public class Prison {
         } else { //random trial
             int actualwins = 0; //prety much the same code as above, except with random
             int wins = 0;
+
+            if(boxes.length == 1) {
+                return 100;
+            }
 
             for (int j = 0; j < trials; j++) {
                 for (int i = 0; i < boxes.length; i++) {
