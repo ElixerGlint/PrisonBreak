@@ -1,7 +1,7 @@
 
 public class Prison {
 
-    private int[] boxes; //2 prisoners
+    private int[] boxes; 
 
     public Prison(int boxnum) {
         boxes = new int[boxnum];
