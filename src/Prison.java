@@ -1,30 +1,29 @@
 
 public class Prison {
 
-    private int[] boxes; 
+    private int[] boxes; //array for the box # (index) and the # they contain (value)
 
-    public Prison(int boxnum) {
+    public Prison(int boxnum) { //constuctor
         boxes = new int[boxnum];
         for (int i = 0; i < boxnum; i++) {
             boxes[i] = i;
         }
-        this.shuffle();
+        this.shuffle(); //shuffels so that the box #s are in a random orientation
     }
 
 
-    public double simulate(int trials, boolean whichPath) { //possibly all i need to do is shuffle the boxes
+    public double simulate(int trials, boolean whichPath) { //simulate function, returns the double %
         if (whichPath) { //smart trial
-            //returns a boolean
             int actualwins = 0;
             int wins = 0;
 
-            for (int j = 0; j < trials; j++) {
-                for (int i = 0; i < boxes.length; i++) {
+            for (int j = 0; j < trials; j++) { //for each trial, it runs through x prison experiement
+                for (int i = 0; i < boxes.length; i++) { //below it runs through the prison experiement
                     if (followSmartPath(i, false)) {
                         wins++;
                     }
                 }
-                if (wins == boxes.length) {
+                if (wins == boxes.length) { //if they all make it out
                     actualwins++;
                 }
                 shuffle();

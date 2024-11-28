@@ -3,7 +3,7 @@ public class Driver {
         Prison abc = new Prison(5);
 
         System.out.println(abc.simulate(1000000, false));
-        //System.out.println(abc.simulate(1000, true));
+        System.out.println(abc.simulate(1000, true));
 
 
 
