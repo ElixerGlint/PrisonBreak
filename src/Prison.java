@@ -11,43 +11,33 @@ public class Prison {
         this.shuffle();
     }
 
-    public double simulate(int trials, boolean whichPath) {
-        int wins = 0;
-        if (whichPath) {
-            for (int j = 0; j < 1000000; j++) {
-                for (int i = 0; i < trials; i++) {
-                    if(swimulatesmart(i) == true) {
+
+    public double simulate(int trials, boolean whichPath) { //possibly all i need to do is shuffle the boxes
+        if (whichPath) { //smart trial
+            //returns a boolean
+            int actualwins = 0;
+            int wins = 0;
+
+            for (int j = 0; j < trials; j++) {
+                for (int i = 0; i < boxes.length; i++) {
+                    if (followSmartPath(i, false)) {
                         wins++;
                     }
                 }
-            }
-        }
-        else {
-            for (int j = 0; j < 1000000; j++) {
-                for (int i = 0; i < trials; i++) {
-                    if(simulaterandom(i) == true) {
-                        wins++;
-                    }
+                if (wins == boxes.length) {
+                    actualwins++;
                 }
+                shuffle();
+                wins = 0;
             }
+            double tempactual = (double)actualwins;
+            double temptrails = (double)trials;
+            double output = tempactual/temptrails*100;
+            return output;
+        } else { //random trial
+
+            return 0;
         }
-        
-
-        return wins / trials; //REPLACE -100!
-    }
-
-    public boolean swimulatesmart(int startnum) {
-        boolean output;
-        output = followSmartPath(startnum, false);
-
-        return output;
-    }
-
-    public boolean simulaterandom(int startnum) {
-        boolean output;
-        output = followRandomPath(startnum, false);
-
-        return output;
     }
 
     public boolean followSmartPath(int start, boolean show) { //ask questions
@@ -64,7 +54,9 @@ public class Prison {
                 return true;
             }
         }
-        System.out.println();
+        if (show) {
+            System.out.println();
+        }
         return false;
     }
 
@@ -74,7 +66,9 @@ public class Prison {
         othershuffle(tempboxes);
 
         for (int i = 0; i < boxes.length / 2; i++) {
-            System.out.print(tempboxes[i] + " -> ");
+            if (show) {
+                System.out.print(tempboxes[i] + " -> ");
+            }
             if (tempboxes[i] == start) {
                 return true;
             }
