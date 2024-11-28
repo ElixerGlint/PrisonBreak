@@ -32,11 +32,26 @@ public class Prison {
             }
             double tempactual = (double)actualwins;
             double temptrails = (double)trials;
-            double output = tempactual/temptrails*100;
-            return output;
+            return tempactual/temptrails*100;
         } else { //random trial
+            int actualwins = 0;
+            int wins = 0;
 
-            return 0;
+            for (int j = 0; j < trials; j++) {
+                for (int i = 0; i < boxes.length; i++) {
+                    if (followRandomPath(i, false)) {
+                        wins++;
+                    }
+                }
+                if (wins == boxes.length) {
+                    actualwins++;
+                }
+                shuffle();
+                wins = 0;
+            }
+            double tempactual = (double)actualwins;
+            double temptrails = (double)trials;
+            return tempactual/temptrails*100;
         }
     }
 
