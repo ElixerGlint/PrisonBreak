@@ -11,6 +11,14 @@ public class Prison {
         this.shuffle(); //shuffels so that the box #s are in a random orientation
     }
 
+    public Prison() { //constuctor
+        boxes = new int[100];
+        for (int i = 0; i < 100; i++) {
+            boxes[i] = i;
+        }
+        this.shuffle(); //shuffels so that the box #s are in a random orientation
+    }
+
 
     public double simulate(int trials, boolean whichPath) { //simulate function, returns the double %
         if (whichPath) { //smart trial
